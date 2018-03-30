@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>18-500 Team B7</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">18-500 Team B7</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="updates.html">Weekly Updates</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/weeklyupdates.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Progress Updates</h1>
+              <span class="subheading">How far have we come? How far do we need to go?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div id="accordion">
+
+            <!-- Use the template below for all future additions. -->
+            <!-- <div class="card">
+              <div class="card-header" id="heading{N}">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{N}" aria-expanded="false" aria-controls="collapse{N}">
+                    Update for MM/DD
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse{N}" class="collapse show" aria-labelledby="heading{N}" data-parent="#accordion">
+                <div class="card-body">
+                  <p>Coming soon...</p>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Update for 3/29
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                    <strong>Atulya</strong>: This week I worked further on my MATLAB prototype for the pedestrian detector. Having implemented the HOG feature computation logic last week, I came up with a framework that will allow me to take in an image, split it up into individual sub-sections and compute the HOG feature for each sub-section. After doing so, I will implement Non-Maximum Suppression in order to reduce nearby "hits" on pedestrians to all refer to the same person. The code to implement this is currently being worked on and is expected to be done by this weekend. Apart from this code, I also worked on updating this website and syncing up with Felix to get an idea of how C++ code will eventually be run on the FPGA. This was vitally important in order for me to understand how the code I write will need to be formatted to make the transition between software to hardware easier for us as we move forward.
+                    <br><br>
+                    <strong>Andres</strong>: This week I finished working on my logistic regression code from earlier in C++. It should be ready to "drop in" to our hardware. Apart from that, I implemented an SVM in MATLAB that we will be integrating with the HOG pipeline in order to test our prototype. This will let us see if our code is correctly be able to determine whether or not there is a person in a given image. Once we have verified our logic, we will be in a position to convert this code to C++, at which point it can be implemented on the FPGA.
+                    <br><br>
+                    <strong>Felix</strong>: This week I have started working on trying to get an AXI Streaming interface working, and I'm currently considering the interface for the project. Meanwhile I have started converting the image gradient computation code to C++ and hope to have it functionally complete in HLS soon. I took some time to understand how the gradient computation works in order to correctly implement it in hardware. I have also given my teammates and idea of how their C++ code will run on the FPGA so that everyone has a better appreciation for the technical aspects of this project moving forwards.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Update for 3/22
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                  <strong>Atulya</strong>: My reponsibilities for this week included getting a HOG feature vector generator working in MATLAB as a prototype, as well as concluding our conversations with CMUPD. Regarding the latter, they have given us permission to take videos on campus, so we will proceed to do that at the appropriate time. In the meantime, I wrote some MATLAB code to generate the HOG feature for a given image segment. The next step is to integrate that with an SVM to actuall classify these image segments as either having a person in them or not. I have also updated the website and our schedule.
+                  <br><br>
+                  <strong>Andres</strong>: The main objective for this week was to get the machine learning side of the project working in C++. While implementing logistic regression, I ran into some library problems and decided to change the approach to using linear regression and finished implementing that in C++. I will continue to work on logistic regression but the main focus is going to be working an SVM module in matlab to be ported over to C++.
+                  <br><br>
+                  <strong>Felix</strong>: This week I focused on getting the basics down. I went through tutorials to build a good foundation on using HLS, the Vivado Suite, as well as the SDK. Got a simple PS/PL system with interrupts running and I am currently looking to expand and adapt the design for the capstone.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Update for 3/8
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                  <strong>Overall Team Project Update</strong><br><br>This week, all three of us worked on completing the design proposal. We incorporated the feedback we receive for our design presentation and made adjustments to our project accordingly. With our finalized architectural details, we are confident of our plan and are moving forward with the implementation. Apart from creating this website, we have also updated our schedule (see Gantt chart on Home page) to better match our current level of progress. We also received a Zedboard recently and have successful set up our development environment in Vivado. Additionally, we have got OpenCV in C++ up and running, which should allow us to start developing our computer vision pipeline soon. From a logistics standpoint, we are in the process of speaking with CMUPD to get permission to take videos of pedestrians on campus. This will allow us to create our statistical models for the machine learning pipeline. As a contingency, we have found a video of pedestrians online that has been used in research papers for pedestrian detection, and we will resort to using that video until we sort out any legal issues with CMUPD.<br><br></p>
+                  <hr>
+                  <p><strong>Individual Team Member Responsibilities (i.e. who did what above)</strong><br><br>
+                  Atulya - Design proposal updates, website creation, OpenCV/C++ setup, meeting with CMUPD.<br>
+                  Andres - Design proposal updates, research on machine learning pipeline for path prediction, training data procurement.<br>
+                  Felix - Design proposal updates, Vivado development environment setup for Zedboard.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>This website was created using the template found <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank"><strong>here</strong></a>.</p> 
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>

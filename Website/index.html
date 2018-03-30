@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>18-500 Team B7</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">18-500 Team B7</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="updates.html">Weekly Updates</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/pedestrians.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Our Project</h1>
+              <span class="subheading"><strong>Real-Time Pedestrian Path Prediction on FPGA</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h3>Overview</h3>
+          <p>We are implementing an end-to-end pipeline that will be capable of doing real-time pedestrian path prediction. Given a scene with pedestrians walking through it, our system will be able to predict the path each pedestrian will take through the scene. Because the steps involved in this are quite computationally intensive, we will be using an FPGA to accelerate the pipeline, which should allow us to run it in real time.
+          <br><br>
+          This system has applications in many different areas. Successful path prediction will allow engineers to analyze foot traffic in public spaces such as train stations to help ease congestion. Pedestrian movement prediction can also be used for collision avoidance in autonomous vehicles. More generally, human behavior prediction can be used to do things like optimize the positioning of products in large stores. Outside of engineer, a system like this could also be used for applications like sports analysis, where coaches could predict the movements of players in different formations and use that data to come up with team tactics.
+          <br><br>
+          There are 4 major parts of our system: Object/Person Detector, Path Predictor, Programmable Logic (FPGA on Zedboard), User Interface. The Object Detector will use HOG features to detect pedestrians in a frame. The Path Predictor will use Linear Regression to predict the pedestrians path given their current position and history of positions in the video. The Programmable Logic will accelerate the computation of the Object Detector and Path Predictor. The User Interface will display our system's prediction in a visually pleasing way.
+          <br><br>
+          The diagram below outlines our high-level architecture.<br><br>
+          <img src="img/arch.jpg">
+          </p>
+          <hr>
+          <h3>Work Distribution</h3>
+          <p>The table below shows the work distribution for this project. The key task categories match up to those found in the Gantt chart below.</p>
+          <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 40%" scope="col"><strong>Task Category</strong></th>
+              <th style="width: 20%" scope="col"><strong>Atulya</strong></th>
+              <th style="width: 20%" scope="col"><strong>Andres</strong></th>
+              <th style="width: 20%" scope="col"><strong>Felix</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Research</th>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+            </tr>
+            <tr>
+              <th scope="row">Preparation</th>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+            </tr>
+            <tr>
+              <th scope="row">Object Detector</th>
+              <td class="inCharge"></td>
+              <td class="notInCharge"></td>
+              <td class="notInCharge"></td>
+            </tr>
+            <tr>
+              <th scope="row">Path Predictor</th>
+              <td class="notInCharge"></td>
+              <td class="inCharge"></td>
+              <td class="notInCharge"></td>
+            </tr>
+            <tr>
+              <th scope="row">Hardware Acceleration</th>
+              <td class="notInCharge"></td>
+              <td class="notInCharge"></td>
+              <td class="inCharge"></td>
+            </tr>
+            <tr>
+              <th scope="row">User Interface</th>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+              <td class="notInCharge"></td>
+            </tr>
+            <tr>
+              <th scope="row">Integration</th>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+              <td class="inCharge"></td>
+            </tr>
+          </tbody>
+          </table>
+          <hr>
+          <h3>Schedule</h3>
+          <p>Below is our planned schedule for the Spring 2018 semester. The Gantt chart outlines each of the tasks that need to be completed along with their expected duration.</p>
+          <img src="img/gantt.jpg" width="750">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>This website was created using the template found <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank"><strong>here</strong></a>.</p> 
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
