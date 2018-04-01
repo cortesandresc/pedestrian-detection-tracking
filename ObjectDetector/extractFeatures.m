@@ -2,7 +2,7 @@
 % HOG vectors should be 1 x 3780
 
 %% Get training HOGs
-trainPosDir = '96X160H96/Train/pos/';
+trainPosDir = 'Train/pos/';
 trainNegDir = 'Train/neg/';
 trainposfiles = dir(strcat(trainPosDir, '*.png'));
 nposfiles = length(trainposfiles);
@@ -27,7 +27,7 @@ end
 
 %% Get testing HOGs
 
-testPosDir = '70X134H96/Test/pos/';
+testPosDir = 'Test/pos/';
 testNegDir = 'Test/neg/';
 testposfiles = dir(strcat(testPosDir, '*.png'));
 nposfiles = length(testposfiles);
