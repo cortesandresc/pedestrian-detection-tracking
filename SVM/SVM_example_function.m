@@ -13,13 +13,16 @@ locs = (er_x ~= 0);
 x(locs,:) = [];
 y(locs,:) = [];
 
+% Set the data and labels as global to prevent the need to load them in the
+% optimization function
 global x y;
 
-% Include the last value as the bias
-feature_length = size(x,2) + 1;
+% Initalize the theta using a prior (work in progress - uses xavier
+% initialization, random start or zero weights)
+theta = load('../data/prior');
+theta = theta.prior;
 
-% Randomly initalize theta
-theta = rand(1,feature_length) - 0.5;
+% Set the options for the optimizer
 options = optimset('MaxIter',1000);
 theta = fminsearch(@svm_optimization_function, theta,options);
 
