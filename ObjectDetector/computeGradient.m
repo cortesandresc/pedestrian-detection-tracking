@@ -66,4 +66,12 @@ for row = 1:imgRows
     end
 end
 
+
+imgToSave = uint8(imgGradient(:,:,1));
+% imwrite(imgToSave, 'ringo_gradient.jpg');
+
+figure;
+imshow(imgToSave);
+title('Gradient')
+
 end
