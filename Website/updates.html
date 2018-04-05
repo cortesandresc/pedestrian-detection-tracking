@@ -81,10 +81,37 @@
               </div>
               <div id="collapse{N}" class="collapse show" aria-labelledby="heading{N}" data-parent="#accordion">
                 <div class="card-body">
-                  <p>Coming soon...</p>
+                  <p>
+                    <strong>Atulya</strong>: Coming soon...
+                    <br><br>
+                    <strong>Andres</strong>: Coming soon...
+                    <br><br>
+                    <strong>Felix</strong>: Coming soon...
+                  </p>
                 </div>
               </div>
             </div> -->
+
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Update for 4/5
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                    <strong>Atulya</strong>: This week I worked on refining my MATLAB HOG feature generation code. I also searched a found a very useful dataset of pedestrian images (positive and negative) that we could use for our SVM training and testing. I was able to combine these two milestones to write code that generated HOG features for my test images and training images, save them in a .mat format that could then be read in by Andres' SVM implementation. Apart from that, I helped Andres debug his SVM code and come up with ways we could improve its performance. I also updated the website and schedule.
+                    <br><br>
+                    <strong>Andres</strong>: This week I worked on fixing some slight issues in our SVM and added the ability to load in a prior probability distribution. I've tested the SVM's ability to identify whether a pedestrian is in an image by training on HOG vectors that were pre-computed from Atulya's MATLAB script and then tested on a set of HOG vectors that corresponded to a different set of images. The accuracy of the SVM when initalized to random weights averages 76% but has reached an accuracy of 87% on the test data. These weights are stored and will be used on the FPGA to evaluate whether a pedestrian is in the provided image. Moving forward, I will create data to train the logistic regression model to predict the path of the pedestrian in the scene.
+                    <br><br>
+                    <strong>Felix</strong>: This week I have implemented the gradient computation and it is functionally correct. I am currently working to optimize the design a bit while I wait for the rest of the code to be done for me to implement. The two main optimizations were removing the radians to degrees conversion, because it requires division, and using the hls_dsp library to perform arctan instead of using the synthesized version in the hls_math library. The cordic atan function in hls_dsp.h requires a specific fixed point representation and currently I am working out a way to normalize the inputs so that the angle calculation is still correct and can achieve a degree perfect accuracy. Removing the division sped up latency by 500 clock cycles. By using the dsp atan function the latency has gone from 90933 clock cycles to 81789 cycles, but more importantly, uses ~15k less LUTs, reducing utilization from 60% to 31%.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div class="card">
               <div class="card-header" id="headingThree">
@@ -94,7 +121,7 @@
                   </button>
                 </h5>
               </div>
-              <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
                   <p>
                     <strong>Atulya</strong>: This week I worked further on my MATLAB prototype for the pedestrian detector. Having implemented the HOG feature computation logic last week, I came up with a framework that will allow me to take in an image, split it up into individual sub-sections and compute the HOG feature for each sub-section. After doing so, I will implement Non-Maximum Suppression in order to reduce nearby "hits" on pedestrians to all refer to the same person. The code to implement this is currently being worked on and is expected to be done by this weekend. Apart from this code, I also worked on updating this website and syncing up with Felix to get an idea of how C++ code will eventually be run on the FPGA. This was vitally important in order for me to understand how the code I write will need to be formatted to make the transition between software to hardware easier for us as we move forward.
