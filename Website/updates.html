@@ -93,6 +93,27 @@
             </div> -->
 
             <div class="card">
+              <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Update for 4/12
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                    <strong>Atulya</strong>: This week I started converting my MATLAB HOG code to C++, which will be used by Felix in the hardware implementation. I also helped Felix resolve some issues involving the arctan() function and the differences in its implementation between MATLAB and C++. I also fixed a bug in my gradient angle calculation that was identified by Felix.
+                    <br><br>
+                    <strong>Andres</strong>: While testing the SVM, I realized there was an issue in the code that resulted in invalid outputs (Nan or errors) from edge cases. This was fixed and the weights and bias were recomputed and stored. The change did not affect the accuracy of the algorithm. I am working on getting the UI set up but am running into difficulties with having the compiler find opencv.
+                    <br><br>
+                    <strong>Felix</strong>: This week I have successfully put the gradient code on hardware and have it running on the Zedboard with the correct results. Currently I am attempting to read and write files on the SD card on the Zedboard with the FatFs API.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
               <div class="card-header" id="headingFour">
                 <h5 class="mb-0">
                   <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -100,7 +121,7 @@
                   </button>
                 </h5>
               </div>
-              <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div class="card-body">
                   <p>
                     <strong>Atulya</strong>: This week I worked on refining my MATLAB HOG feature generation code. I also searched a found a very useful dataset of pedestrian images (positive and negative) that we could use for our SVM training and testing. I was able to combine these two milestones to write code that generated HOG features for my test images and training images, save them in a .mat format that could then be read in by Andres' SVM implementation. Apart from that, I helped Andres debug his SVM code and come up with ways we could improve its performance. I also updated the website and schedule.
