@@ -2,12 +2,12 @@ function [imgGradient] = computeGradient(img)
 
 [imgRows, imgCols, ~] = size(img);
 
-imgGradient = zeros(imgRows, imgCols, 2); 
+imgGradient = zeros(imgRows, imgCols, 2); % dim-1 can be unsigned, dim-2 must be signed
 
 Iy = zeros(imgRows, imgCols);
 Ix = zeros(imgRows, imgCols);
 
-img = double(img); % this is critical
+img = double(img); % this is critical for our calculations
 
 for row = 1:imgRows
     for col = 1:imgCols
@@ -67,11 +67,8 @@ for row = 1:imgRows
 end
 
 
-imgToSave = uint8(imgGradient(:,:,1));
+%% If you want to save the magnitude/gradient to file
+% imgToSave = uint8(imgGradient(:,:,1));
 % imwrite(imgToSave, 'ringo_gradient.jpg');
-
-figure;
-imshow(imgToSave);
-title('Gradient')
 
 end

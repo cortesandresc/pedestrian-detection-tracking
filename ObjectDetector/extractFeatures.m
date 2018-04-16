@@ -36,7 +36,7 @@ nnegfiles = length(testnegfiles);
 testHOGs = zeros(nposfiles+nnegfiles, 3780);
 testLabels = ones(nposfiles+nnegfiles, 1);
 for i = 1:nposfiles
-    filename = strcat(testPosDir, testfiles(i).name);
+    filename = strcat(testPosDir, testposfiles(i).name);
     img = imread(filename);
     img = img(4:131, 4:67, :);
     testHOGs(i, :) = hog(img);
@@ -51,10 +51,16 @@ for i = 1:nnegfiles
 end
 
 %% Save the things
-features = trainHOGs;
-labels = trainLabels;
-save('../data/features.mat', 'features');
-save('../data/labels.mat', 'labels');
+train_features = trainHOGs;
+train_labels = trainLabels;
+save('../data/train_features.mat', 'train_features');
+save('../data/train_labels.mat', 'train_labels');
+
+test_features = testHOGs;
+test_labels = testLabels;
+save('../data/test_features.mat', 'test_features');
+save('../data/test_labels.mat', 'test_labels');
+
 
 
 
