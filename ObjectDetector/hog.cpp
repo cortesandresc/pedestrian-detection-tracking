@@ -10,13 +10,13 @@ using namespace std;
 #define CELLSIZE 8
 
 #define NBINS 9
-#define ANGLE_INTERVAL (180 / NBINS)
+#define ANGLE_INTERVAL (180 / NBINS) // Angle assumed to be in degrees
 
 #define HISTOGRAM88ROWS (ROWS / CELLSIZE)
 #define HISTOGRAM88COLS (COLS / CELLSIZE)
 
-#define HISTOGRAMNORMROWS ((ROWS / CELLSIZE) - 1)
-#define HISTOGRAMNORMCOLS ((COLS / CELLSIZE) - 1)
+#define HISTOGRAMNORMROWS (HISTOGRAM88ROWS - 1)
+#define HISTOGRAMNORMCOLS (HISTOGRAM88COLS - 1)
 
 typedef struct GRADIENT {
     int magnitude;
@@ -36,7 +36,7 @@ typedef struct HISTOGRAMSNORM {
 } histogramnorm_t;
 
 typedef struct HOG_VECTOR {
-    float hog[4*NBINS*HISTOGRAMNORMROWS*HISTOGRAMNORMCOLS];
+    float hog_vector[4*NBINS*HISTOGRAMNORMROWS*HISTOGRAMNORMCOLS];
 } hog_t;
 
 void* myMalloc(size_t bytes) {
@@ -70,7 +70,7 @@ histogram88_t* computeHistograms88(imagegradient_t* imagegradient) {
             // Compute histogram of 8x8 patch
             for (row = startRow; row <= endRow; row++) {
                 for (col = startCol; col <= endCol; col++) {
-                    angle = (imagegradient->pixel[row][col].angle + 90); // CRITICAL: adjust range to fit in [0 pi)
+                    angle = (imagegradient->pixel[row][col].angle + 90); // CRITICAL: adjust range to fit in [0 180)
                     // Determine which 2 buckets the magnitude is distributed across
                     index1 = (int) floor(angle / ANGLE_INTERVAL);
                     index2 = (index1 + 1) % NBINS;
@@ -117,6 +117,17 @@ histogramnorm_t* computeHistogramnorms(histogram88_t* histogram88) {
 
 hog_t* computeHOG(histogramnorm_t* histogramnorm) {
     hog_t* hog = (hog_t*) myMalloc(sizeof(hog_t));
+    int row, col, bin;
+    int index = 0;
+    // Concatenate all the normalized histograms
+    for (row = 0; row < HISTOGRAMNORMROWS; row++) {
+        for (col = 0; col < HISTOGRAMNORMCOLS; col++) {
+            for (bin = 0; bin < 4*NBINS; bin++) {
+                hog->hog_vector[index] = histogramnorm->histogram_grid[row][col][bin];
+                index++;
+            }
+        }
+    }
     return hog;
 }
 
