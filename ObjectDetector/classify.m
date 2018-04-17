@@ -1,10 +1,7 @@
-function [] = classify()
-%% Wrapper script to calculate hog vector for an image
+function [class] = classify(hog_vector)
 
-% Ensure image dimensions are multiples of 16
-imgName = 'ringo.jpg'; 
-img = imread(imgName);
+r = rand * 100;
 
-HOG_vector = hog(img);
+class = (r > 95); % replace this with SVM classification based on hog_vector
 
 end

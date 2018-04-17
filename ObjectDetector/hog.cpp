@@ -58,7 +58,7 @@ histogram88_t* computeHistograms88(imagegradient_t* imagegradient) {
     int row, col, hRow, hCol, startRow, endRow, startCol, endCol;
     int magnitude, angle;
     int index1, index2;
-    int remainder;
+    int remainder; // This will become a float if angles are in radians
     float ratio;
     for (hRow = 0; hRow < HISTOGRAM88ROWS; hRow++) {
         for (hCol = 0; hCol < HISTOGRAM88COLS; hCol++) {
@@ -75,7 +75,7 @@ histogram88_t* computeHistograms88(imagegradient_t* imagegradient) {
                     index1 = (int) floor(angle / ANGLE_INTERVAL);
                     index2 = (index1 + 1) % NBINS;
                     // Calculate how much goes in each bucket
-                    remainder = angle % ANGLE_INTERVAL;
+                    remainder = angle % ANGLE_INTERVAL; // This will not work if angles are in radians
                     ratio = (float)remainder / ANGLE_INTERVAL;
                     magnitude = imagegradient->pixel[row][col].magnitude;
                     // Populate histogram
