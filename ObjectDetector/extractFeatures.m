@@ -51,10 +51,16 @@ for i = 1:nnegfiles
 end
 
 %% Save the things
-features = trainHOGs;
-labels = trainLabels;
-save('../data/features.mat', 'features');
-save('../data/labels.mat', 'labels');
+train_features = trainHOGs;
+train_labels = trainLabels;
+save('../data/train_features.mat', 'train_features');
+save('../data/train_labels.mat', 'train_labels');
+
+test_features = testHOGs;
+test_labels = testLabels;
+save('../data/test_features.mat', 'test_features');
+save('../data/test_labels.mat', 'test_labels');
+
 
 features = testHOGs;
 labels = testLabels;
