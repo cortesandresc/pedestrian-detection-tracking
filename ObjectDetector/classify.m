@@ -5,5 +5,4 @@ load('../data/SVM_Params.mat');
 % FPGA. The 0.5 represents medium confidence the HOG is a person. This
 % value can range from 0 (low confidence) to >1 (high confidence)
 class = (weights' * hog_vector' + bias) > 0.6;
-
 end
