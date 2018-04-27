@@ -3,6 +3,11 @@
 
 playground.*
 
+*.avi
+*.mp4
+*.m4v
+*.mov
+
 ### C ###
 # Prerequisites
 *.d

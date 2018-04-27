@@ -93,6 +93,27 @@
             </div> -->
 
             <div class="card">
+              <div class="card-header" id="headingSix">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Update for 4/26
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseSix" class="collapse show" aria-labelledby="heading{N}" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                    <strong>Atulya</strong>: This week I worked closely with Andres to use our SVM and HOG code to see how it performs in a real-world video. I found a commonly used dataset called the TownCentre video, which depicts people walking through a street. We plan to have our system detect the people walking through this video. Additionally, after seeing the performance of our SVM, I brainstormed some ways in which we could improve our implementation. The plan is to implement those ideas until we hit our performance benchmarks.
+                    <br><br>
+                    <strong>Andres</strong>: This week I worked on using images from the video we want to run our code on and demo at the end of the semester to show how they interact with our pipeline. I created a script that runs through the video, passes each frame through our pipeline and then outputs a video that contains bounding boxes for all the people in the video. I added in background subtraction to reduce false-classification of static objects that look human-like (mannequins) or objects that weren't included in our test set (mailboxes, metallic pay phones).  These will only be considered by our pipeline if the pixel intensities in the local area change substantially. In matlab, I added a script that finds and stores the true background with dynamic objects like people removed. I also found images that has people of varying sizes to test the sensitivity of the pipeline.
+                    <br><br>
+                    <strong>Felix</strong>: This week I finished implementing the hog vector calculation in HLS. The design fits on the board and passes timing currently but the clock cycles it requires is not ideal. I am currently in the process of optimizing for more speed, for example replacing more division statements with case statements.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
               <div class="card-header" id="headingFive">
                 <h5 class="mb-0">
                   <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -100,7 +121,7 @@
                   </button>
                 </h5>
               </div>
-              <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordion">
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                 <div class="card-body">
                   <p>
                     <strong>Atulya</strong>: This week I started converting my MATLAB HOG code to C++, which will be used by Felix in the hardware implementation. I also helped Felix resolve some issues involving the arctan() function and the differences in its implementation between MATLAB and C++. I also fixed a bug in my gradient angle calculation that was identified by Felix.
