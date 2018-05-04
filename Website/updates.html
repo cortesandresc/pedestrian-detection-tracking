@@ -93,6 +93,27 @@
             </div> -->
 
             <div class="card">
+              <div class="card-header" id="headingSeven">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    Update for 5/3
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseSeven" class="collapse show" aria-labelledby="headingSeven" data-parent="#accordion">
+                <div class="card-body">
+                  <p>
+                    <strong>Atulya</strong>: This week I went through the video we used and collected more data for our SVM. This required me to minutely study our current video output and identify parts of the video that were causing the SVM to fail (misclassifying a garbage can as a person, missing people entirely etc.). Once I had identified these objects, I had to add them to our SVM training data so that our SVM would learn to correctly classify these things. I also worked on creating the final presentation that we did in class. Lastly, I implemented our sliding-window pipeline in C++ so that we could do performance testing between our C++ CPU implementation and our FPGA implementation. This data was used in our final presentation.
+                    <br><br>
+                    <strong>Andres</strong>: This week I wrote and tuned the non-maximal suppression (NMS) algorithm to remove overlapping bounding boxes that map to the same pedestrian. I gathered metrics (recall / precision) on the video that we are using to demo using the old SVM and the new SVM that was trained with the original dataset combined with a few images from the scene that it consistently did poorly on. I've started working on the backend for the user interface of our application (gathering analytics on the stores in the demo video) and will continue to work on that.
+                    <br><br>
+                    <strong>Felix</strong>: This week I finished implementing the basic sliding window algorithm on the Zedboard. It currently still only reads 1 frame and for the weekend I will come up with a way for the system to process multiple frames. Also for the weekend I have decided to attempt to move to a bigger board such as the ZC706. Due to the nature of the HOG algorithm, there are lots of dependencies between loops that require a bit of all or nothing approach to optimization, and a ZC706 will allow us to half our current latency which I believe is worth the setup time that I will spend on changing the platform. I also collected data for the final presentation, such as performance on the board as well as on the C++ code, as well as power consumption for each platform.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
               <div class="card-header" id="headingSix">
                 <h5 class="mb-0">
                   <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -100,7 +121,7 @@
                   </button>
                 </h5>
               </div>
-              <div id="collapseSix" class="collapse show" aria-labelledby="heading{N}" data-parent="#accordion">
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                 <div class="card-body">
                   <p>
                     <strong>Atulya</strong>: This week I worked closely with Andres to use our SVM and HOG code to see how it performs in a real-world video. I found a commonly used dataset called the TownCentre video, which depicts people walking through a street. We plan to have our system detect the people walking through this video. Additionally, after seeing the performance of our SVM, I brainstormed some ways in which we could improve our implementation. The plan is to implement those ideas until we hit our performance benchmarks.
