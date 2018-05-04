@@ -19,7 +19,6 @@ for row = 1:stepsize:imgRows-windowSize(1)+1
         imgPatch = img(row:row+windowSize(1)-1, col:col+windowSize(2)-1, :);
         hog_vector = hog(imgPatch);
         class = classify(hog_vector);
-        
         if (class)
             positiveWindows = [positiveWindows; row col];
         end

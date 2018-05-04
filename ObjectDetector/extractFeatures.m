@@ -12,6 +12,8 @@ trainHOGs = zeros(nposfiles+nnegfiles, 3780);
 trainLabels = zeros(nposfiles+nnegfiles, 1);
 for i = 1:nposfiles
     filename = strcat(trainPosDir, trainposfiles(i).name);
+    disp(filename);
+    continue
     img = imread(filename);
     img = img(17:144, 17:80,:);
     trainHOGs(i, :) = hog(img);
@@ -19,11 +21,15 @@ for i = 1:nposfiles
 end
 for i = 1:nnegfiles
     filename = strcat(trainNegDir, trainnegfiles(i).name);
+    disp(filename);
+    continue
     img = imread(filename);
     img = img(17:144, 17:80,:);
     trainHOGs(i+nposfiles, :) = hog(img);
     trainLabels(i+nposfiles, :) = -1;
 end
+
+return
 
 %% Get testing HOGs
 
