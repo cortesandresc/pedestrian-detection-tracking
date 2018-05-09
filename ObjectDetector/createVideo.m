@@ -1,14 +1,16 @@
 
 function [] = createVideo()
 
-vid = VideoReader('town_center_converted.m4v');
+% vid = VideoReader('town_center_converted.m4v');
+vid = VideoReader('TownCentreXVID.mp4', 'CurrentTime', 12.0);
 vidout = VideoWriter('testing_pipeline.avi');
 open(vidout);
-fig = figure;
+fig = figure('visible', 'off');
 
 prev_img = imresize(readFrame(vid),2/3);
 %while hasFrame(vid) % Uncomment this line to run through the entire video
-for a = 1:10
+
+for a = 1:100
     a
     img = imresize(readFrame(vid),2/3);
 

@@ -6,6 +6,7 @@ playground.*
 *.avi
 *.m4v
 *.mov
+*.mp4
 
 ### C ###
 # Prerequisites
